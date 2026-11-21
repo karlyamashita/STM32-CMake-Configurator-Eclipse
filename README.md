@@ -8,6 +8,14 @@ STM32CubeIDE does not provide a straightforward GUI option in its CMake workflow
 
 The configurator also makes common linker-script changes easier. Instead of manually editing memory addresses, I can adjust the **FLASH start address** to leave space for a bootloader and place the application code where it belongs. I can also **reserve the last FLASH page or erase unit** for user arguments or other persistent application data. The GUI makes these changes more convenient and reduces the chance of mistakes when editing CMake and linker scripts by hand.
 
+## Download Prebuilt Plugin
+
+If you prefer not to build the Java project from source, you can download the prebuilt plugin from the [GitHub Releases](../../releases) page.
+
+The release includes the files needed to install the plugin directly into STM32CubeIDE. See the installation instructions in the release repository for setup details.
+
+<img width="394" height="712" alt="GitHub Releases download section" src="https://github.com/user-attachments/assets/0b01bfa3-42da-4f7f-8a64-b043430c59db" />
+
 ## Configurator GUI preview
 
 The screenshots below shows the STM32 CMake Project Configurator interface inside STM32CubeIDE.
