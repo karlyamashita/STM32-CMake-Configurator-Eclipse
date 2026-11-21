@@ -2,6 +2,12 @@
 
 Java/Eclipse PDE source for the KTYLabs STM32 CMake Project Configurator plugin for STM32CubeIDE. This repository is for **building and signing releases**. The separate distribution repository provides the installable `STM32-CMake-Configurator.zip` and its SHA-256 checksum.
 
+## Configurator GUI preview
+
+The screenshot below shows the STM32 CMake Project Configurator interface inside STM32CubeIDE.
+
+<img width="1914" height="1025" alt="STM32 CMake Project Configurator GUI" src="https://github.com/user-attachments/assets/65296b3d-cecf-4345-92d2-654a694ce9a2" />
+
 ## Project layout
 
 ```text
