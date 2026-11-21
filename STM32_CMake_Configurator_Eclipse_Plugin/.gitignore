@@ -1,0 +1,8 @@
+/bin/
+/target/
+/.metadata/
+*.class
+*.log
+*.bak
+*.tmp
+.DS_Store

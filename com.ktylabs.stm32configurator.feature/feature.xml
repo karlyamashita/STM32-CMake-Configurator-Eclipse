@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature id="com.ktylabs.stm32configurator.feature" label="KTYLabs STM32 CMake Project Configurator" version="0.1.2" provider-name="KTYLabs">
+ <description>STM32 CMake project configurator for Eclipse-based IDEs, including STM32CubeIDE.</description>
+ <plugin id="com.ktylabs.stm32configurator" download-size="0" install-size="0" version="0.0.0" unpack="false"/>
+</feature>

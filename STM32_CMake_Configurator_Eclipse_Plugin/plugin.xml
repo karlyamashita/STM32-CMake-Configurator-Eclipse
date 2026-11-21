@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+ <extension point="org.eclipse.ui.commands">
+  <command id="com.ktylabs.stm32configurator.open" name="STM32 CMake Project Configurator" description="Configure CMake, linker script and ELF verification"/>
+ </extension>
+ <extension point="org.eclipse.ui.handlers">
+  <handler commandId="com.ktylabs.stm32configurator.open" class="com.ktylabs.stm32configurator.OpenConfiguratorHandler"/>
+ </extension>
+ <extension point="org.eclipse.ui.menus">
+  <menuContribution locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+   <menu id="com.ktylabs.stm32configurator.menu" label="KTYLabs">
+    <command commandId="com.ktylabs.stm32configurator.open" label="STM32 CMake Project Configurator" style="push"/>
+   </menu>
+  </menuContribution>
+  <menuContribution locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+   <toolbar id="com.ktylabs.stm32configurator.toolbar" label="KTYLabs">
+    <command commandId="com.ktylabs.stm32configurator.open" label="STM32 CMake Configurator" style="push"/>
+   </toolbar>
+  </menuContribution>
+  <menuContribution locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+   <command commandId="com.ktylabs.stm32configurator.open" label="STM32 CMake Project Configurator" style="push">
+    <visibleWhen checkEnabled="false"><with variable="selection"><iterate ifEmpty="false"><adapt type="org.eclipse.core.resources.IResource"/></iterate></with></visibleWhen>
+   </command>
+  </menuContribution>
+ </extension>
+</plugin>

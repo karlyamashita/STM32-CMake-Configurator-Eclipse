@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: STM32 CMake Project Configurator
+Bundle-SymbolicName: com.ktylabs.stm32configurator;singleton:=true
+Bundle-Version: 0.1.2
+Bundle-Vendor: KTYLabs
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.jface,
+ org.eclipse.swt,
+ org.eclipse.ui.workbench,
+ org.eclipse.ui.ide
+Bundle-ActivationPolicy: lazy

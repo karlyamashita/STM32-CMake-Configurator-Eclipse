@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/com.ktylabs.stm32configurator.feature_0.1.2.jar" id="com.ktylabs.stm32configurator.feature" version="0.1.2">
+      <category name="KTYLabs"/>
+   </feature>
+   <category-def name="KTYLabs" label="KTYLabs STM32 Tools">
+      <description>
+         STM32 development tools from KTYLabs.
+      </description>
+   </category-def>
+</site>

@@ -1,0 +1,26 @@
+# KTYLabs signing certificates and private keys
+KTYLabs-Signing.p12
+*.p12
+*.pfx
+*.jks
+
+# Generated release packages (source repository only)
+features.zip
+STM32-CMake-Configurator.zip
+STM32-CMake-Configurator.sha256.txt
+
+# Eclipse workspace and generated build files
+.metadata/
+.recommenders/
+**/bin/
+**/target/
+
+# Generated Eclipse update-site artifacts
+com.ktylabs.stm32configurator.updatesite/artifacts.jar
+com.ktylabs.stm32configurator.updatesite/content.jar
+com.ktylabs.stm32configurator.updatesite/features/
+com.ktylabs.stm32configurator.updatesite/plugins/
+
+# Temporary and backup files
+*.tmp
+*.bak
