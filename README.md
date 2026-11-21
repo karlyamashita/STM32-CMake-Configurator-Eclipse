@@ -23,6 +23,81 @@ The screenshots below shows the STM32 CMake Project Configurator interface insid
 <img width="1914" height="1025" alt="STM32 CMake Project Configurator GUI" src="https://github.com/user-attachments/assets/65296b3d-cecf-4345-92d2-654a694ce9a2" />
 <img width="1046" height="394" alt="image" src="https://github.com/user-attachments/assets/1354ea63-4add-47ae-a068-995db108fd2f" />
 
+## Using the configurator in STM32CubeIDE
+
+After installing the plugin and restarting STM32CubeIDE, open your STM32 **CMake project** in the **Project Explorer**. Select the project you want to configure before launching the tool. The configurator uses the selected project to locate its `CMakeLists.txt` and linker scripts, including files in nested project folders.
+
+### Start the GUI
+
+1. In **Project Explorer**, select your STM32 CMake project.
+2. Open the **KTYLabs** menu and choose the STM32 CMake Configurator command, as shown below.
+3. Alternatively, use the configurator's toolbar shortcut when it is visible. The next two images show the available launch controls.
+4. Confirm the configurator opens with the expected project and files. If a file was not detected, browse to it manually.
+
+**Launch from the STM32CubeIDE menu:**
+
+<img width="465" height="825" alt="Launch STM32 CMake Configurator from the STM32CubeIDE menu" src="https://github.com/user-attachments/assets/8824070e-fbd2-4c8f-8822-e4a04484beec" />
+
+**Toolbar launch controls:**
+
+<img width="659" height="66" alt="STM32CubeIDE configurator toolbar launch option" src="https://github.com/user-attachments/assets/a78ee843-9a01-45c4-91fc-90e59ad216fc" />
+
+<img width="750" height="49" alt="Additional STM32CubeIDE toolbar launch option" src="https://github.com/user-attachments/assets/53de796d-539e-4245-a500-0fbb0479e54c" />
+
+### CMake Configurator tab
+
+This tab helps edit the selected project's `CMakeLists.txt` without having to remember CMake command syntax.
+
+- **Select the correct CMake file.** Check the detected `CMakeLists.txt` path; browse to another file if needed, especially when a workspace contains multiple CMake projects.
+- **Review build configuration.** Inspect the displayed target sources, include paths, definitions, link options, libraries, and other supported CMake settings. Make changes only to entries you intend to update.
+- **Generate BIN and HEX files.** Enable the desired post-build output option(s). The configurator adds or updates the relevant CMake commands so the normal build can produce `.bin` and/or `.hex` files from the compiled ELF.
+- **Apply changes.** Review the editable preview, apply or save the changes, and then rebuild the STM32 project. Check the **Build Console** for messages such as `Created BIN:` and `Created HEX:` and verify the generated files in the build output directory.
+
+**Tip:** BIN and HEX generation happens when you build the project; selecting the options in the GUI does not itself compile the firmware. Keep your existing `CMakeLists.txt` under version control so changes can be reviewed or reverted.
+
+### Flash Linker Script tab
+
+Use this tab to change the FLASH memory region in the application's linker script, for example when a bootloader occupies the beginning of FLASH or when persistent user data must be kept outside the application image.
+
+1. Confirm that the correct FLASH linker script (`.ld`) is selected. The configurator searches the project but intentionally ignores folders named `Templates`.
+2. Set the **FLASH start address** to the application's intended starting address. For a bootloader/application layout, this should match the address at which the bootloader transfers control to the application.
+3. Review or adjust the **FLASH end address**. The displayed end address is inclusive; the usable length must remain consistent with the MCU's memory map and the linker script.
+4. To preserve space for settings, arguments, or nonvolatile user data, choose the erase-unit size and reserve the desired number of units at the **end of FLASH**. On supported devices, the tool can automatically select a **2 KB erase unit**.
+5. Inspect the linker-script preview, then apply the changes. Use **Reset** to restore the originally loaded FLASH range and clear the reserved-unit count when needed.
+
+**Important:** Reserve whole erase units appropriate to your exact STM32 device. Changing the linker region does **not** automatically implement flash-data storage, relocate interrupt vectors, or configure your bootloader. Confirm the resulting application fits and that programming/erase operations will not overwrite the reserved area.
+
+### SRAM Linker Script tab
+
+Use this tab when the project has an SRAM linker script or SRAM-related memory configuration.
+
+1. Select the appropriate SRAM `.ld` file if more than one is available.
+2. Review the SRAM memory region and the proposed changes in the preview.
+3. Edit only the addresses or ranges required for your project, then apply the changes.
+4. Rebuild and inspect the linker output to ensure sections fit within the available RAM.
+
+The SRAM tab is separate from the FLASH tab so memory changes can be reviewed independently. If your project does not contain a separate SRAM linker script, that tab may not have a file to edit.
+
+### Verify ELF tab
+
+Use **Verify ELF** after building to inspect the generated firmware image against the selected linker configuration.
+
+1. Build the project to generate an `.elf` file.
+2. Ensure the appropriate linker script has been selected in the configurator.
+3. Open **Verify ELF**, select or locate the ELF file as needed, and run the verification.
+4. Review any reported address, memory-range, or section issues before flashing the MCU.
+
+Verification helps catch configuration mismatches, but it does not replace testing on the target board.
+
+### Suggested workflow
+
+1. Select the STM32 CMake project and launch the configurator.
+2. Set up BIN/HEX post-build generation in **CMake Configurator**.
+3. Adjust the application FLASH start address and reserve end-of-FLASH erase units if required.
+4. Review SRAM settings only if your project needs them.
+5. Apply changes, rebuild, and check the build console and output files.
+6. Run **Verify ELF** and then test the firmware on the actual STM32 hardware.
+
 ## Project layout
 
 ```text
