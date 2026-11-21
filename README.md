@@ -2,6 +2,12 @@
 
 Java/Eclipse PDE source for the KTYLabs STM32 CMake Project Configurator plugin for STM32CubeIDE. This repository is for **building and signing releases**. The separate distribution repository provides the installable `STM32-CMake-Configurator.zip` and its SHA-256 checksum.
 
+## Why I created this configurator
+
+STM32CubeIDE does not provide a straightforward GUI option in its CMake workflow to generate **HEX** or **BIN** files after a build. Normally, I would have to edit `CMakeLists.txt` manually and add the appropriate post-build commands. I could never remember the CMake keywords and syntax for generating those files, so I created this configurator to do it for me.
+
+The configurator also makes common linker-script changes easier. Instead of manually editing memory addresses, I can adjust the **FLASH start address** to leave space for a bootloader and place the application code where it belongs. I can also **reserve the last FLASH page or erase unit** for user arguments or other persistent application data. The GUI makes these changes more convenient and reduces the chance of mistakes when editing CMake and linker scripts by hand.
+
 ## Configurator GUI preview
 
 The screenshot below shows the STM32 CMake Project Configurator interface inside STM32CubeIDE.
