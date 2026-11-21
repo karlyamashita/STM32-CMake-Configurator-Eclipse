@@ -10,9 +10,10 @@ The configurator also makes common linker-script changes easier. Instead of manu
 
 ## Configurator GUI preview
 
-The screenshot below shows the STM32 CMake Project Configurator interface inside STM32CubeIDE.
+The screenshots below shows the STM32 CMake Project Configurator interface inside STM32CubeIDE.
 
 <img width="1914" height="1025" alt="STM32 CMake Project Configurator GUI" src="https://github.com/user-attachments/assets/65296b3d-cecf-4345-92d2-654a694ce9a2" />
+<img width="1046" height="394" alt="image" src="https://github.com/user-attachments/assets/1354ea63-4add-47ae-a068-995db108fd2f" />
 
 ## Project layout
 
